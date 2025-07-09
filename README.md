@@ -1,47 +1,76 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19806785&assignment_repo_type=AssignmentRepo)
-# MongoDB Fundamentals Assignment
+# 📚 PLP Bookstore - MongoDB Assignment
 
-This assignment focuses on learning MongoDB fundamentals including setup, CRUD operations, advanced queries, aggregation pipelines, and indexing.
+A complete implementation of MongoDB operations for a Christian books database, covering CRUD, aggregation pipelines, and indexing optimization.
 
-## Assignment Overview
+## 🛠️ Setup Instructions
 
-You will:
-1. Set up a MongoDB database
-2. Perform basic CRUD operations
-3. Write advanced queries with filtering, projection, and sorting
-4. Create aggregation pipelines for data analysis
-5. Implement indexing for performance optimization
+### Prerequisites
+- MongoDB (Local or Atlas)
+- MongoDB Compass (Recommended) or `mongosh`
 
-## Getting Started
+### Installation
+1. **Start MongoDB**:
+   ```bash
+   # For local installations
+   mongod
+   ```
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+2. **Import Data**:
+   ```bash
+   mongosh plp_bookstore < insert_books.js
+   ```
 
-## Files Included
+## 📂 File Structure
+- `insert_books.js` - Contains 10 Christian books by authors like T.D. Jakes and Sarah Jakes Roberts
+- 'queries.js' - All required queries for:
+  - Task 2: CRUD operations
+  - Task 3: Advanced queries
+  - Task 4: Aggregation pipelines
+  - Task 5: Indexing
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+## 🎯 Key Features
+1. **Christian Books Dataset**:
+   - Genres: Prayer, Christian Living, Leadership
+   - Authors: T.D. Jakes, Sarah Jakes Roberts, etc.
 
-## Requirements
+2. **Optimized Performance**:
+   - Indexes on `title`, `author_published_year` compound
+   - Text search on title/genre
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+3. **Analytics**:
+   ''javascript
+   // Example: Average price by genre
+   db.books.aggregate([
+     { $group: { _id: "$genre", avgPrice: { $avg: "$price" } } }
+   ]);''
+   
 
-## Submission
+## 📊 Sample Outputs
+![Collection View](screenshots/screenshot_database.png)  
+*Books collection in MongoDB Compass*
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+![Aggregation Results](screenshots/screenshot_aggregation_stage1.png)  
+*Average price by genre analysis*
 
-1. Complete all tasks in the assignment
-2. Add your `queries.js` file with all required MongoDB queries
-3. Include a screenshot of your MongoDB database
-4. Update the README.md with your specific setup instructions
+![Indexes Results](screenshots/screenshot_indexes.png)  
+*Index from collection*
 
-## Resources
+![Queries Results](screenshots/screenshot_mongosh_queries.png)  
+*A screenshot of a query ran*
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+## 👨‍💻 How to Run
+1. Execute queries individually in:
+   - **MongoDB Compass** (MONGOSH tab)
+   - **Terminal**:
+     ''bash
+     mongosh plp_bookstore
+     > load("queries.js")
+     ''
+
+2. Verify indexes:
+   ''javascript
+   db.books.getIndexes();
+   ''
+
+## 📜 License
+This project is part of the PLP Week 1 - MongoDB assignment (Educational Use)

@@ -10,127 +10,107 @@ const uri = 'mongodb://localhost:27017';
 const dbName = 'plp_bookstore';
 const collectionName = 'books';
 
-// Sample book data
+// My  book data
 const books = [
   {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    genre: 'Fiction',
-    published_year: 1960,
-    price: 12.99,
+    title: 'Woman, Thou Art Loosed!',
+    author: 'T.D. Jakes',
+    genre: 'Christian Living',
+    published_year: 1993,
+    price: 13.99,
     in_stock: true,
-    pages: 336,
-    publisher: 'J. B. Lippincott & Co.'
+    pages: 240,
+    publisher: 'Bethany House'
   },
   {
-    title: '1984',
-    author: 'George Orwell',
-    genre: 'Dystopian',
-    published_year: 1949,
-    price: 10.99,
+    title: 'Destiny: Step Into Your Purpose',
+    author: 'T.D. Jakes',
+    genre: 'Spiritual Growth',
+    published_year: 2015,
+    price: 16.99,
     in_stock: true,
-    pages: 328,
-    publisher: 'Secker & Warburg'
+    pages: 288,
+    publisher: 'FaithWords'
   },
   {
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    genre: 'Fiction',
-    published_year: 1925,
-    price: 9.99,
-    in_stock: true,
-    pages: 180,
-    publisher: 'Charles Scribner\'s Sons'
-  },
-  {
-    title: 'Brave New World',
-    author: 'Aldous Huxley',
-    genre: 'Dystopian',
-    published_year: 1932,
-    price: 11.50,
-    in_stock: false,
-    pages: 311,
-    publisher: 'Chatto & Windus'
-  },
-  {
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
-    published_year: 1937,
+    title: 'The Seven Laws of Influence',
+    author: 'Rorisang Thandekiso',
+    genre: 'Faith & Leadership',
+    published_year: 2022,
     price: 14.99,
     in_stock: true,
-    pages: 310,
-    publisher: 'George Allen & Unwin'
+    pages: 210,
+    publisher: 'Purpose Pioneers'
   },
   {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
-    genre: 'Fiction',
-    published_year: 1951,
-    price: 8.99,
-    in_stock: true,
-    pages: 224,
-    publisher: 'Little, Brown and Company'
-  },
-  {
-    title: 'Pride and Prejudice',
-    author: 'Jane Austen',
-    genre: 'Romance',
-    published_year: 1813,
-    price: 7.99,
-    in_stock: true,
-    pages: 432,
-    publisher: 'T. Egerton, Whitehall'
-  },
-  {
-    title: 'The Lord of the Rings',
-    author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
-    published_year: 1954,
-    price: 19.99,
-    in_stock: true,
-    pages: 1178,
-    publisher: 'Allen & Unwin'
-  },
-  {
-    title: 'Animal Farm',
-    author: 'George Orwell',
-    genre: 'Political Satire',
-    published_year: 1945,
-    price: 8.50,
-    in_stock: false,
-    pages: 112,
-    publisher: 'Secker & Warburg'
-  },
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    genre: 'Fiction',
-    published_year: 1988,
-    price: 10.99,
-    in_stock: true,
-    pages: 197,
-    publisher: 'HarperOne'
-  },
-  {
-    title: 'Moby Dick',
-    author: 'Herman Melville',
-    genre: 'Adventure',
-    published_year: 1851,
+    title: 'He-Motions: Even Strong Men Struggle',
+    author: 'T.D. Jakes',
+    genre: 'Men’s Ministry',
+    published_year: 2004,
     price: 12.50,
     in_stock: false,
-    pages: 635,
-    publisher: 'Harper & Brothers'
+    pages: 272,
+    publisher: 'Putnam Adult'
   },
   {
-    title: 'Wuthering Heights',
-    author: 'Emily Brontë',
-    genre: 'Gothic Fiction',
-    published_year: 1847,
+    title: 'Unmerited Favor',
+    author: 'Joseph Prince',
+    genre: 'Grace Teaching',
+    published_year: 2010,
+    price: 15.00,
+    in_stock: true,
+    pages: 304,
+    publisher: 'Charisma House'
+  },
+  {
+    title: 'The Purpose Driven Life',
+    author: 'Rick Warren',
+    genre: 'Spiritual Growth',
+    published_year: 2002,
+    price: 10.99,
+    in_stock: true,
+    pages: 336,
+    publisher: 'Zondervan'
+  },
+  {
+    title: 'Live Full Die Empty',
+    author: 'Les Brown',
+    genre: 'Motivational Christian',
+    published_year: 1996,
+    price: 13.49,
+    in_stock: true,
+    pages: 192,
+    publisher: 'Les Brown Enterprises'
+  },
+  {
+    title: 'Crazy Faith',
+    author: 'Michael Todd',
+    genre: 'Faith & Miracles',
+    published_year: 2021,
+    price: 17.99,
+    in_stock: true,
+    pages: 208,
+    publisher: 'WaterBrook'
+  },
+  {
+    title: 'The Power of a Praying Woman',
+    author: 'Stormie Omartian',
+    genre: 'Prayer',
+    published_year: 2002,
     price: 9.99,
     in_stock: true,
-    pages: 342,
-    publisher: 'Thomas Cautley Newby'
+    pages: 256,
+    publisher: 'Harvest House Publishers'
+  },
+  {
+    title: 'Battlefield of the Mind',
+    author: 'Joyce Meyer',
+    genre: 'Christian Living',
+    published_year: 1995,
+    price: 11.99,
+    in_stock: false,
+    pages: 288,
+    publisher: 'Hachette Book Group'
   }
 ];
 
